@@ -1,13 +1,15 @@
 import json
 
 # Open JSON file and read data from him, creates a file if it doesn't exist
+FILEPATH = "../Phonebook/contacts_database.json"
+
 try:
-    contact_database = json.load(open("contacts_database.json"))
+    contact_database = json.load(open(FILEPATH))
 except json.decoder.JSONDecodeError:
     contact_database = []
 except FileNotFoundError:
     contact_database = []
-    with open("contacts_database.json", "w") as file:
+    with open(FILEPATH, "w") as file:
         pass
 
 
@@ -21,7 +23,7 @@ def update_id_after_delete() -> None:
 
 def save_database_to_file() -> None:
     """Saves contacts database to JSON file"""
-    with open("contacts_database.json", "a") as database:
+    with open(FILEPATH, "a") as database:
         database.truncate(0)
         json.dump(contact_database, database, indent=4)
 
@@ -31,7 +33,7 @@ def show_command() -> str:
     show_output_string = ""
     try:
         show_command_output = ""
-        with open("contacts_database.json", "r") as database:
+        with open(FILEPATH, "r") as database:
             show_command_output = json.load(database)
         for contact in show_command_output:
             show_output_string += (f"    ID: {contact['id']}; Name: {contact['name']}; "
@@ -45,7 +47,7 @@ def show_command() -> str:
 def erase_command() -> str:
     """Execution of {erase} command, that erases the whole contacts database in file and in contact_database list"""
     global contact_database
-    with open("contacts_database.json", "w") as database:
+    with open(FILEPATH, "w") as database:
         database.truncate()
     contact_database = []
     return "    Your phonebook was successfully erased!"
