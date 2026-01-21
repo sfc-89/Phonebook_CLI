@@ -129,7 +129,7 @@ def update_contact_command(contact_id: int, contact_new_name: str = None, contac
 def help_command() -> str:
     """Execution of {help} command, that prints out all available commands"""
     return ("""
-    List of availiable commands:
+    List of available commands:
     add *contact_name *contact_number - add a contact with id, name and phone number to the phonebook;
         add *contact_name - adds a contact with id, name and empty phone number to the phonebook;
         add - adds a empty contact with id.
