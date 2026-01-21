@@ -5,7 +5,7 @@ def phonebook_tests():
     """Tests function"""
     #Tests of {erase} command
     assert test_api.erase_command()
-    with open("../Phonebook/contacts_database.json", "r") as contacts_database:
+    with open(test_api.FILEPATH, "r") as contacts_database:
         assert contacts_database.readlines() == []
     assert test_api.erase_command() == "    Your phonebook was successfully erased!"
     assert test_api.contact_database == []
@@ -105,7 +105,7 @@ def phonebook_tests():
     #Test of {help} command
     assert (
         """
-    List of availiable commands:
+    List of available commands:
     add *contact_name *contact_number - add a contact with id, name and phone number to the phonebook;
         add *contact_name - adds a contact with id, name and empty phone number to the phonebook;
         add - adds a empty contact with id.
