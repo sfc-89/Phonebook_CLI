@@ -132,7 +132,7 @@ def help_command() -> str:
     """Execution of {help} command, that prints out all available commands"""
     return ("""
     List of available commands:
-    add *contact_name *contact_number - add a contact with id, name and phone number to the phonebook;
+    add *contact_name *contact_number - adds a contact with id, name and phone number to the phonebook;
         add *contact_name - adds a contact with id, name and empty phone number to the phonebook;
         add - adds a empty contact with id.
     search *key(id or name or number) *value - search for a specific contact by key and value;
